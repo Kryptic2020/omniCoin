@@ -15,7 +15,7 @@ export const OmniCoin = styled.div`
     margin: auto;
     padding: auto;
     font-size: 50px;
-    margin-top: 100px;
+    margin-top: 70px;
     color: #9A8194;
 `
 export const Li = styled.li`
@@ -39,15 +39,13 @@ color:#7A5D7E;
 }
 `
 export const DiveBox = styled.ul`
-width:80%;
+width:90%;
 background-color:#ECE8D9;
 padding:30px 0px 30px 0px;
 `
 export const DiveBoxModal = styled.ul`
-width:100%;
 border-radius:5px;
-background-color:#ECE8D9;
-padding:30px 0px 30px 0px;
+// background-color:#ECE8D9;
 `
 
 export const SelectHeading = styled.span`
@@ -126,21 +124,8 @@ font-size: 1.5rem;
 font-weight: bold;
 text-align:center;
 text-decoration: none;
-color: #9A8194
-`
-
-export const MobileIcon = styled.div`
-display: none;
-
-@media screen and (max-width:768px) {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(-100, 60%);
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+color: #9A8194;
+padding-left:1rem;
 `
 
 export const NavMenu = styled.ul`
@@ -253,11 +238,23 @@ width:50px;
 text-align:center;
 margin:0 auto;
 color: #9A8194;
+@media screen and (max-width: 480px) {
+ text-align:center;
+ margin: 0;
+ font-Size:16px;
+  
+}
 `
 
 export const Img = styled.img`
-border-radius:50%;
+margin: 0 auto;
+ border-radius:none;
+@media screen and (min-width: 480px) {
+ 
+
+ border-radius:50%;
 margin:5px 0;
+}
 `
 
 export const Foot = styled.div`

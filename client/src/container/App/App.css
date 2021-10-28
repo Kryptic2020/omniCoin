@@ -3,6 +3,15 @@
 .box-shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.bg-omni{
+    background-color: #ECE8D9;
+}
+.bg-omni-dark{
+    background-color: rgb(210, 205, 211);
+}
+.text-color{
+    color: #7A5D7E;
+}
 
 div.btn {
     align-items: center;
@@ -37,3 +46,23 @@ div.about {
     width: 90%;
     margin:0 auto;
 }
+
+button.button {
+  display: flex;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  padding: auto;
+  font-weight: bold;
+  background-color: #7A5D7E;
+  border-color: transparent;
+  color: #ECE8D9;
+  align-items: center;
+}
+button.button:hover {
+  color: #7A5D7E;
+  background-color: #ECE8D9;
+  border-color: transparent;
+}
+

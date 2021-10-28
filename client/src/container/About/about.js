@@ -3,9 +3,8 @@ import { Heading, Text } from '../StyledComponents';
 
 export default function about() {
   return (
-    <div>
-      <div id='about' className='my-5 about box-shadow p-sm-5 p-3'>
-						<Heading data-aos='fade-up'>
+      <div id='about' className='mt-5 about box-shadow px-sm-5 px-3 py-sm-1 py-1'>
+						<Heading>
 							About
 						</Heading>
 						<Text data-aos='fade-up' className='my-3'>
@@ -18,6 +17,5 @@ export default function about() {
               Our name, omniCoin, literally translates to everyone's coin and that's how we want to operate moving forward. No one should be left behind as tech advances and we will do our best to make sure the Australian people remain in the know about this rapidly evolving industry. 
             </Text>
 					</div>
-    </div>
   )
 }

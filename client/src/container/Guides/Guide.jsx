@@ -7,7 +7,7 @@ import {
 	Text,
 	Container,
 } from '../StyledComponents';
-import ModalGuide from '../Modal/ModalGuide';
+import ModalGuide from '../CustomModals/ModalGuide';
 
 
 
@@ -45,7 +45,7 @@ function Guide() {
 					}}
 			><div>
 				<Text className=' m-3'>{e.title}</Text>
-				<div className='guide__click__info'>
+				<div>
 					&#x1F50E;&#xFE0E;
 				</div>
                     
@@ -61,7 +61,7 @@ function Guide() {
 				Click on images below to learn about Crypto
 				and Stocks!
 			</Text>
-			<Container className='rounded'>
+			<Container className='rounded box-shadow'>
 					<Row className='col-12 d-flex-wrap justify-content-around m-auto text-center p-2'>
 						{cards}
 					</Row>

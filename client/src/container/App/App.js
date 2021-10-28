@@ -62,7 +62,7 @@ function App() {
 			.then((res) => res.json())
 			.then((res) => {
 				setCurrencies(res);
-			});
+			}).catch((e)=> e);
 	}
 
 		//Fetching coin list
@@ -71,7 +71,7 @@ function App() {
 			.then((res) => res.json())
 			.then((res) => {
 				setCoinList(res);
-			});
+			}).catch((e)=> e);
 	}
 
   //Fetching 30 days coin Pricing
@@ -87,7 +87,7 @@ function App() {
 						return [newDate(el[0]), el[1]];
 					})
 				);
-			});
+			}).catch((e)=> e);
 	}
 
 	useEffect(() => {

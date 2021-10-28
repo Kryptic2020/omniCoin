@@ -1,5 +1,4 @@
 import React from 'react';
-import './Graph.css';
 import { Button } from 'react-bootstrap';
 import { Line } from 'react-chartjs-2';
 import { GraphContainer } from '../StyledComponents';
@@ -42,8 +41,8 @@ const Graph = ({ data, coin, CoinPricing }) => {
     
   return (
 	  <div>
-      <Button className="m-auto mt-3 box-shadow button text-center btn-lg" onClick={CoinPricing}>View</Button>
-	    <GraphContainer className="graphContainer m-auto mt-3 box-shadow">
+      <Button className="mx-auto my-5 box-shadow button text-center btn-lg" onClick={CoinPricing}>View</Button>
+	    <GraphContainer className="m-auto mt-3 box-shadow">
         <Line className="box-shadow p-2" data = {formatChartData()} height ={window.innerWidth > 500 ? 200 :450} />
 			</GraphContainer>
 			<div id="guides"></div>

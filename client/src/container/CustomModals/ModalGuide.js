@@ -1,27 +1,28 @@
 import React from 'react'
 
 import {Modal} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Text } from '../StyledComponents';
 
 export default function ModalGuide({show,onClose, data}) {
 	//const [modalShow, setModalShow] = useState(true)
 
   return (
     <div>
-      <Modal className='col-10 box-shadow'
+      <Modal className='col-10 bg-dark'
 				show={show}
 				onHide={onClose}
 				size='lg'
 				arial-labelledby='contained-modal-title-vcenter'
 				centered
 			>
-				<Modal.Header className='bg-info'>
+				<Modal.Header className='bg-omni-dark'>
 					<Modal.Title id='contained-modal-title-vcenter'>
-						{data.title}
+						<Text>{data.title}</Text>
 					</Modal.Title>
 				</Modal.Header>
-				<Modal.Body className=' m-auto bg-info'>
-					<div className='bg-info mx-3 my-5'>{data.summary}</div>
+				<Modal.Body className=' m-auto '>
+					<div className='mx-3 my-5'><Text>{data.summary}</Text></div>
 					<p className='text-center my-2 '>
 						<a
 					href={data.link}
@@ -31,13 +32,10 @@ export default function ModalGuide({show,onClose, data}) {
 					Go to site
 				</a></p>
 				</Modal.Body>
-				<Modal.Footer className='bg-info'>
-					<p className="m-auto">Keywords:</p>
-					<p className="d-flex w-100 m-auto"
-					>
-						{data.keywords}
-					</p>
-					<Button
+				<Modal.Footer className='bg-omni-dark'>
+					<p className='m-auto'><Text>Keywords:</Text></p>
+						<p className='m-auto'><Text>{data.keywords}</Text></p>
+					<Button className="button"
 						onClick={onClose}
 					>
 						Close
