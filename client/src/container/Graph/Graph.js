@@ -42,9 +42,9 @@ const Graph = ({ data, coin, CoinPricing }) => {
     
   return (
 	  <div>
-      <Button className="m-auto mt-3 px-5 py-3 button text-center" onClick={CoinPricing}>View</Button>
-	    <GraphContainer className="graphContainer m-auto mt-3">
-        <Line  data = {formatChartData()} maxHeight ={250} />
+      <Button className="m-auto mt-3 box-shadow button text-center btn-lg" onClick={CoinPricing}>View</Button>
+	    <GraphContainer className="graphContainer m-auto mt-3 box-shadow">
+        <Line className="box-shadow p-2" data = {formatChartData()} height ={window.innerWidth > 500 ? 200 :450} />
 			</GraphContainer>
 			<div id="guides"></div>
 	</div>

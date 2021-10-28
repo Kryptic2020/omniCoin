@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState, useCallback} from 'react';
 import axios from 'axios';
 import {FaBars} from 'react-icons/fa';
 import { Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavLinks, Name, Img } from './../StyledComponents';
@@ -13,8 +13,7 @@ const NavBar = ({ user, activateUser }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  function getUser() {
-    setIsLoading(true);
+  const getUser = useCallback(()=>{setIsLoading(true);
     axios.get('/api/current_user')
   		.then((res) => {
         if (res.data) {
@@ -26,11 +25,10 @@ const NavBar = ({ user, activateUser }) => {
   			setMessage(res.data);
   			//setUser('');
       });
-    setIsLoading(false);
-  }
+    setIsLoading(false);},[]) 
   useEffect(() => {
     getUser();
-  },[])
+  },[getUser])
 
   const userName = user.name.split(' ')
   const profile = (<div className=" col-3">

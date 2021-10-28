@@ -3,20 +3,21 @@ import React, {
 	useState,
 	useEffect,
 } from 'react';
-import reducer from '../utils/reducer';
-import CurrencySelector from './CurrencySelector';
-import Graph from './Graph/Graph';
-import Guide from './Guides/Guide';
-import CoinSelector from './CoinSelector';
-import DiveDeeper from './Dive-deeper/Dive-deeper';
-import NavBar from './Navbar/Navbar';
-import SideBar from './Sidebar/Sidebar';
-import MainLogo from './MainLogo/MainLogo';
+import reducer from '../../utils/reducer';
+import CurrencySelector from '../CurrencySelector/CurrencySelector';
+import Graph from '../Graph/Graph';
+import Guide from '../Guides/Guide';
+import CoinSelector from '../CoinSelector/CoinSelector';
+import DiveDeeper from '../Dive-deeper/Dive-deeper';
+import NavBar from '../Navbar/Navbar';
+import SideBar from '../Sidebar/Sidebar';
+import MainLogo from '../MainLogo/MainLogo';
 import './App.css';
-import Footer from '../Footer/Footer';
-import About from './About/about';
-import {Heading} from './StyledComponents';
-import Head from './Head/Head';
+import Footer from '../../Footer/Footer';
+import About from '../About/about';
+import {Heading} from '../StyledComponents';
+import Head from '../Head/Head';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 function App() {
 	const initialState = {
@@ -103,9 +104,9 @@ function App() {
 
 	return (
 		<div>
-			<SideBar />
-			<NavBar user={userInfo}	activateUser={activateUser}/>
-			<MainLogo className="mt-5"/>
+			<NavigationBar user={userInfo}	activateUser={activateUser}/>
+			{/* <NavBar user={userInfo}	activateUser={activateUser}/> */}
+			<MainLogo className="mt-5" />
 			<Head/>
 			<About/>
 			<Heading>Crypto Stocks</Heading>

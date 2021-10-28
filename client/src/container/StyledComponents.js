@@ -64,7 +64,9 @@ margin: 25px auto;
 background-color: #ECE8D9;
 color:#7A5D7E;
 border-radius:3px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 select {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 0.3em;
   border:none;
   border-radius:3px;
@@ -73,11 +75,20 @@ select {
   background-color: #7A5D7E;
   font-weight:bold;
   font-size: 1em;
-  width: 250px;
+  width: 60%;
   text-align:center;
   white-space:nowrap;
   &:focus {
       
+  }
+}
+@media screen and (max-width: 960px) {
+  display:block;
+  width:90%;
+  padding: 0.5em;
+  select{
+    width: 100%;
+    padding: 0.5em;
   }
 }
 `

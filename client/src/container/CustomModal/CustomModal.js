@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Modal } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button'
+//import Button from 'react-bootstrap/Button'
 import ThumbnailBox from '../ThumbnailBox/ThumbnailBox'
 
 export default function CustomModal({itemName,content}) {
@@ -18,7 +18,7 @@ export default function CustomModal({itemName,content}) {
         dialogClassName="bg-dark"
         aria-labelledby="example-custom-modal-styling-title"
       >
-        <Modal.Header closeButton>
+        <Modal.Header  closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
             {itemName}
           </Modal.Title>
