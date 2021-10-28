@@ -9,8 +9,6 @@ import Graph from '../Graph/Graph';
 import Guide from '../Guides/Guide';
 import CoinSelector from '../CoinSelector/CoinSelector';
 import DiveDeeper from '../Dive-deeper/Dive-deeper';
-import NavBar from '../Navbar/Navbar';
-import SideBar from '../Sidebar/Sidebar';
 import MainLogo from '../MainLogo/MainLogo';
 import './App.css';
 import Footer from '../../Footer/Footer';
@@ -105,7 +103,6 @@ function App() {
 	return (
 		<div>
 			<NavigationBar user={userInfo}	activateUser={activateUser}/>
-			{/* <NavBar user={userInfo}	activateUser={activateUser}/> */}
 			<MainLogo className="mt-5" />
 			<Head/>
 			<About/>
