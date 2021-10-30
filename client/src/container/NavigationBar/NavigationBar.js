@@ -6,13 +6,11 @@ import React, {
 import axios from 'axios';
 import {
 	NavLogo,Text,
-	//Nav, NavbarContainer,  MobileIcon, NavMenu, NavLinks,
 	Name,
 	Img,
 } from './../StyledComponents';
 import Spinner from '../Spinner/Spinner';
 import logo from '../../images/logo.png';
-
 import { Container, Navbar, Nav } from 'react-bootstrap';
 
 export default function NavigationBar({
@@ -28,13 +26,11 @@ export default function NavigationBar({
 			.get('/api/current_user')
 			.then((res) => {
 				if (res.data) {
-					//setUser(res.data);
 					activateUser(res.data);
 				}
 			})
 			.catch((res) => {
 				setMessage(res.data);
-				//setUser('');
 			});
 		setIsLoading(false);
 	}, []);

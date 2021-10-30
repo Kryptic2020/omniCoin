@@ -6,11 +6,8 @@ import { GraphContainer } from '../StyledComponents';
 const Graph = ({ data, coin, CoinPricing }) => {
 
 	function formatChartData() {
-		
 		let arr = []
 		if (data.length > 0) {arr = data.map((el)=>  el[0])}
-		
-		console.log(data);
     	return {
 			labels: arr.sort(),
 			datasets: [

@@ -1,15 +1,17 @@
-import React from 'react'
-
-import {Modal} from 'react-bootstrap';
+import React from 'react';
+import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Text } from '../StyledComponents';
 
-export default function ModalGuide({show,onClose, data}) {
-	//const [modalShow, setModalShow] = useState(true)
-
-  return (
-    <div>
-      <Modal className='col-10 bg-dark'
+export default function ModalGuide({
+	show,
+	onClose,
+	data,
+}) {
+	return (
+		<div>
+			<Modal
+				className='col-10 bg-dark'
 				show={show}
 				onHide={onClose}
 				size='lg'
@@ -22,27 +24,34 @@ export default function ModalGuide({show,onClose, data}) {
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body className=' m-auto '>
-					<div className='mx-3 my-5'><Text>{data.summary}</Text></div>
+					<div className='mx-3 my-5'>
+						<Text>{data.summary}</Text>
+					</div>
 					<p className='text-center my-2 '>
 						<a
-					href={data.link}
-					target='blank'
-					rel='noreferrer'
-				>
-					Go to site
-				</a></p>
+							href={data.link}
+							target='blank'
+							rel='noreferrer'
+						>
+							Go to site
+						</a>
+					</p>
 				</Modal.Body>
 				<Modal.Footer className='bg-omni-dark'>
-					<p className='m-auto'><Text>Keywords:</Text></p>
-						<p className='m-auto'><Text>{data.keywords}</Text></p>
-					<Button className="button"
+					<p className='m-auto'>
+						<Text>Keywords:</Text>
+					</p>
+					<p className='m-auto'>
+						<Text>{data.keywords}</Text>
+					</p>
+					<Button
+						className='button'
 						onClick={onClose}
 					>
 						Close
 					</Button>
 				</Modal.Footer>
 			</Modal>
-      
-    </div>
-  )
+		</div>
+	);
 }

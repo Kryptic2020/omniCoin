@@ -1,18 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
+/* some generic styling and theme background colour */
+body {
+margin: 0px;
+padding: 0px;
+width: 100%;
+  background-color: #FAF6E9  ;
+}
+
+/* General box-shadow */
 .box-shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+/* background theme */
 .bg-omni{
     background-color: #ECE8D9;
 }
+/* secondary background theme */
 .bg-omni-dark{
     background-color: rgb(210, 205, 211);
 }
+/* text colour theme */
 .text-color{
     color: #7A5D7E;
 }
 
+/* some generic styling */
 div.btn {
     align-items: center;
     display: flex;
@@ -20,6 +33,7 @@ div.btn {
     justify-content: center;
 }
 
+/* some generic styling */
 a.btn.btn-primary {
     margin: 5px;
     padding: auto;
@@ -28,25 +42,14 @@ a.btn.btn-primary {
     color: #9A8194;
 }
 
-
-div.stocks h2 {
-    font-family: 'Poppins';
-    text-align: center;
-    color: #9A8194;
-}
-
-h2.h2 {
-    font-family: 'Poppins';
-    text-align: center;
-    color: #9A8194;
-}
-
+/* section about styling */
 div.about {
     background: #ECE8D9;
     width: 90%;
     margin:0 auto;
 }
 
+/* some generic styling */
 button.button {
   display: flex;
   text-align: center;
@@ -60,6 +63,8 @@ button.button {
   color: #ECE8D9;
   align-items: center;
 }
+
+/* some generic styling */
 button.button:hover {
   color: #7A5D7E;
   background-color: #ECE8D9;

@@ -1,11 +1,5 @@
 
-body {
-margin: 0px;
-padding: 0px;
-width: 100%;
-  background-color: #FAF6E9  ;
-}
-
+/* Logo styling */
 .circle {
     margin: auto;
     margin-top: 190px;
@@ -19,6 +13,7 @@ width: 100%;
   animation: animate 0.5s linear infinite;
 }
 
+/* Logo animation */
 @keyframes animate {
   from {
       trasform: rotate(0deg);

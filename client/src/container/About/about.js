@@ -1,7 +1,7 @@
 import React from 'react'
 import { Heading, Text } from '../StyledComponents';
 
-export default function about() {
+const About = () => {
   return (
       <div id='about' className='mt-5 about box-shadow px-sm-5 px-3 py-sm-1 py-1'>
 						<Heading>
@@ -19,3 +19,4 @@ export default function about() {
 					</div>
   )
 }
+export default About;

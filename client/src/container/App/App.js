@@ -28,16 +28,15 @@ function App() {
 		reducer,
 		initialState
 	);
-	const { googleId, name, email, photo } = store;
-
-	const defaultCurrency = 'usd';
-	const [currency, setCurrency] =
-		useState(defaultCurrency);
+	const { name, photo } = store;
+	const [currency, setCurrency] =	useState('usd');
 	const [bitcoinData, setBitcoinData] = useState({});
 	const [currencies, setCurrencies] = useState([]);
 	const [coin, setCoin] = useState('bitcoin');
 	const [coinList, setCoinList] = useState([]);
+	
 
+	//Dispatch to Save user details into global state(reducer)
 	function activateUser(data) {
 		dispatch({
 			type: 'setLoggedInUser',
@@ -45,6 +44,7 @@ function App() {
 		});
 	}
 
+	//Converting timestamp into date
 	function newDate(date) {
 		return new Date(date).toLocaleString('fr-CA', {
 			year:'numeric',
@@ -52,9 +52,9 @@ function App() {
 			day: 'numeric',
 		});
 	}
-	const userInfo = { googleId, name, email, photo };
+	
 
-	//Fetching currency list
+	//Fetching all crypto existing currencies - currencies
 	function getCurrencies() {
 		fetch('https://api.coingecko.com/api/v3/simple/supported_vs_currencies')
 			.then((res) => res.json())
@@ -63,7 +63,7 @@ function App() {
 			}).catch((e)=> e);
 	}
 
-		//Fetching coin list
+		//Fetching all existing coin - coinList
 	function getCoinList() {
 		fetch('https://api.coingecko.com/api/v3/coins/list')
 			.then((res) => res.json())
@@ -72,7 +72,7 @@ function App() {
 			}).catch((e)=> e);
 	}
 
-  //Fetching 30 days coin Pricing
+  //Fetching 30 days coin Pricing - coinData
 	function getCoinPricing() {
 		const today = +new Date();
 		fetch(
@@ -87,18 +87,23 @@ function App() {
 				);
 			}).catch((e)=> e);
 	}
-
 	useEffect(() => {
 		getCurrencies();
 		getCoinList();
 	}, []);
 
+	//Handling selected currency into state
 	function currencyChangeHandler(currency) {
 		setCurrency(currency);
 	}
+
+	//Handling slected coin into state
 	function coinChangeHandler(coin) {
 		setCoin(coin);
 	}
+
+	//Variable to be used into props
+	const userInfo = { name, photo };
 
 	return (
 		<div>
@@ -119,12 +124,10 @@ function App() {
 			/>
 			<Graph
 				data={bitcoinData}
-				coin={coin}
+				coin={coin.toUpperCase()}
 				CoinPricing={getCoinPricing}
 			/>
-			{/* <div id='guides' className='guides mb-5'> */}
 				<Guide className='mb-5' />
-      {/* </div> */}
       	<DiveDeeper />
         <Footer/>
 		</div>

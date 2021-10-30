@@ -1,17 +1,11 @@
 import bitCoin from '../images/guideImages/bitcoinImg.png'
 
-// image: e.image,
-// link: e.link,
-// title: e.title,
-// summary: e.summary,
-// technologies: e.technologies
-
 const guideData = [
     {
         image: bitCoin,
         link: 'https://www.investopedia.com/terms/c/cryptocurrency.asp',
         title: 'What Is Cryptocurrency?',
-        summary: 'a form of payment that can be exchanged online for goods and services. Many companies have issued their own currencies, often called tokens, and these can be traded specifically for the good or service that the company provides. Think of them as you would arcade tokens or casino chips. You’ll need to exchange real currency for the cryptocurrency to access the good or service. online platform for users to subscribe to health and wellness thought leaders who are looking to change the fitness landscape',
+        summary: 'A form of payment that can be exchanged online for goods and services. Many companies have issued their own currencies, often called tokens, and these can be traded specifically for the good or service that the company provides. Think of them as you would arcade tokens or casino chips. You’ll need to exchange real currency for the cryptocurrency to access the good or service. online platform for users to subscribe to health and wellness thought leaders who are looking to change the fitness landscape',
         Keywords: 'Satoshi Nakamoto | Bitcoin | Mining | Blockchain'
     },
     {
