@@ -1,50 +1,23 @@
-import React, {
-	useEffect,
-	useState,
-	useCallback,
-} from 'react';
-import axios from 'axios';
+import React from 'react';
 import {
 	NavLogo,Text,
 	Name,
 	Img,
 } from './../StyledComponents';
-import Spinner from '../Spinner/Spinner';
 import logo from '../../images/logo.png';
 import { Container, Navbar, Nav } from 'react-bootstrap';
+export default function NavigationBar({state}) {
 
-export default function NavigationBar({
-	user,
-	activateUser,
-}) {
-	const [isLoading, setIsLoading] = useState(false);
-	const [message, setMessage] = useState('');
+	//Convert name into array
+	const userName = state.name.split(' ');
 
-	const getUser = useCallback(() => {
-		setIsLoading(true);
-		axios
-			.get('/api/current_user')
-			.then((res) => {
-				if (res.data) {
-					activateUser(res.data);
-				}
-			})
-			.catch((res) => {
-				setMessage(res.data);
-			});
-		setIsLoading(false);
-	}, []);
-	useEffect(() => {
-		getUser();
-	}, [getUser]);
-
-	const userName = user.name.split(' ');
+	//Getting photo and first name only
 	const profile = (
 		<div className='text-center'>
 			<div>
 				<Img
-					src={user.photo}
-					alt={user.name}
+					src={state.photo}
+					alt={state.name}
 					height='45'
 					width='45'
 				/>
@@ -81,7 +54,7 @@ export default function NavigationBar({
 							<Nav.Link href='#divedeeper'>
 								<Text>Dive Deeper</Text>
 							</Nav.Link>
-							{!user.name ? (
+							{!state.name ? (
 								<Nav.Link href='/auth/google'>
 									<Text>Sign in with Google</Text>
 								</Nav.Link>
@@ -91,15 +64,9 @@ export default function NavigationBar({
 								</Nav.Link>
 							)}
 						</Nav>
-
 						<Nav.Link>
-							{user.name ? profile : null}
+							{state.name ? profile : null}
 						</Nav.Link>
-
-						{message ? (
-							<h3>{message}</h3>
-						) : null}
-						{isLoading ? <Spinner /> : null}
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>

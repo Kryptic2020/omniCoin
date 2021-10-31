@@ -2,7 +2,9 @@ import React, {
 	useReducer,
 	useState,
 	useEffect,
+	useCallback,
 } from 'react';
+import axios from 'axios';
 import reducer from '../../utils/reducer';
 import CurrencySelector from '../CurrencySelector/CurrencySelector';
 import Graph from '../Graph/Graph';
@@ -13,22 +15,22 @@ import MainLogo from '../MainLogo/MainLogo';
 import './App.css';
 import Footer from '../../Footer/Footer';
 import About from '../About/about';
-import {Heading} from '../StyledComponents';
+import {Heading,Text} from '../StyledComponents';
 import Head from '../Head/Head';
+import Spinner from '../Spinner/Spinner';
 import NavigationBar from '../NavigationBar/NavigationBar';
 
 function App() {
 	const initialState = {
-		googleId: '',
 		name: '',
-		email: '',
-		photo: '',
+		photo: ''
 	};
 	const [store, dispatch] = useReducer(
 		reducer,
 		initialState
 	);
-	const { name, photo } = store;
+	const [message, setMessage] =	useState('');
+	const [isLoading, setIsLoading] =	useState(false);
 	const [currency, setCurrency] =	useState('usd');
 	const [bitcoinData, setBitcoinData] = useState({});
 	const [currencies, setCurrencies] = useState([]);
@@ -44,6 +46,26 @@ function App() {
 		});
 	}
 
+
+	//Fetch current user from internal API - NodeJs
+	const getUser = useCallback(() => {
+		setIsLoading(true);
+		axios
+			.get('/api/current_user')
+			.then((res) => {
+				if (res.data) {
+					activateUser(res.data);
+				}
+			})
+			.catch((res) => {
+				setMessage(res.data);
+			});setIsLoading(false);
+	}, []);
+
+	useEffect(() => {
+		getUser();
+	}, [getUser]);
+
 	//Converting timestamp into date
 	function newDate(date) {
 		return new Date(date).toLocaleString('fr-CA', {
@@ -56,24 +78,29 @@ function App() {
 
 	//Fetching all crypto existing currencies - currencies
 	function getCurrencies() {
+		setIsLoading(true);
 		fetch('https://api.coingecko.com/api/v3/simple/supported_vs_currencies')
 			.then((res) => res.json())
 			.then((res) => {
 				setCurrencies(res);
 			}).catch((e)=> e);
+			setIsLoading(false);
 	}
 
 		//Fetching all existing coin - coinList
 	function getCoinList() {
+		setIsLoading(true);
 		fetch('https://api.coingecko.com/api/v3/coins/list')
 			.then((res) => res.json())
 			.then((res) => {
 				setCoinList(res);
-			}).catch((e)=> e);
+			}).catch((e) => e);
+		setIsLoading(false);
 	}
 
   //Fetching 30 days coin Pricing - coinData
 	function getCoinPricing() {
+		setIsLoading(true);
 		const today = +new Date();
 		fetch(
 			`https://api.coingecko.com/api/v3/coins/${coin}/market_chart/range?vs_currency=${currency}&from=1632774400&to=${today}`
@@ -85,7 +112,8 @@ function App() {
 						return [newDate(el[0]), el[1]];
 					})
 				);
-			}).catch((e)=> e);
+			}).catch((e) => e);
+		setIsLoading(false);
 	}
 	useEffect(() => {
 		getCurrencies();
@@ -102,13 +130,12 @@ function App() {
 		setCoin(coin);
 	}
 
-	//Variable to be used into props
-	const userInfo = { name, photo };
-
 	return (
 		<div>
-			<NavigationBar user={userInfo}	activateUser={activateUser}/>
+			<NavigationBar state={store}	activateUser={activateUser}/>
 			<MainLogo className="mt-5" />
+			{message ? <Text className="mt-5">{message}</Text>:null}
+			{isLoading ? <Spinner /> : null}
 			<Head/>
 			<About/>
 			<Heading>Crypto Stocks</Heading>

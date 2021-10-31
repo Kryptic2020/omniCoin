@@ -3,7 +3,7 @@ import './MainLogo.css';
 
 const MainLogo = () => {
     return (
-        <div id='home'  class="circle">
+        <div id='home'  className="circle">
             <span></span>
             <span></span>
             <span></span>
